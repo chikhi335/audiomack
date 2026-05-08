@@ -1,4 +1,5 @@
-import { Play, Pause, SkipBack, SkipForward, Repeat, Shuffle, Volume2, VolumeX, Maximize2 } from 'lucide-react';
+
+ import { Play, Pause, SkipBack, SkipForward, Repeat, Shuffle, Volume2, VolumeX, Maximize2, ListMusic } from 'lucide-react';
 import { type Song } from '../mockData';
 import { useState, useEffect } from 'react';
 
@@ -11,6 +12,13 @@ interface MusicPlayerProps {
   onSeek: (time: number) => void;
   volume: number;
   onVolumeChange: (volume: number) => void;
+  onNext: () => void;
+  onPrevious: () => void;
+  isShuffle: boolean;
+  onShuffleToggle: () => void;
+  isRepeat: boolean;
+  onRepeatToggle: () => void;
+  onQueueClick?: () => void;
 }
 
 const MusicPlayer = ({ 
@@ -21,7 +29,14 @@ const MusicPlayer = ({
   duration, 
   onSeek,
   volume,
-  onVolumeChange
+  onVolumeChange,
+  onNext,
+  onPrevious,
+  isShuffle,
+  onShuffleToggle,
+  isRepeat,
+  onRepeatToggle,
+  onQueueClick
 }: MusicPlayerProps) => {
   const [imgError, setImgError] = useState(false);
   const fallbackImage = "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop&q=80";
@@ -72,10 +87,16 @@ const MusicPlayer = ({
 
       <div className="flex flex-col items-center w-1/3 max-w-2xl">
         <div className="flex items-center gap-6 mb-2">
-          <button className="text-gray-400 hover:text-white transition-colors">
+          <button 
+            onClick={onShuffleToggle}
+            className={`transition-colors ${isShuffle ? 'text-orange-500' : 'text-gray-400 hover:text-white'}`}
+          >
             <Shuffle size={18} />
           </button>
-          <button className="text-white hover:text-orange-500 transition-colors">
+          <button 
+            onClick={onPrevious}
+            className="text-white hover:text-orange-500 transition-colors"
+          >
             <SkipBack size={22} fill="currentColor" />
           </button>
           <button 
@@ -84,10 +105,16 @@ const MusicPlayer = ({
           >
             {isPlaying ? <Pause fill="black" size={20} /> : <Play fill="black" size={20} className="ml-1" />}
           </button>
-          <button className="text-white hover:text-orange-500 transition-colors">
+          <button 
+            onClick={onNext}
+            className="text-white hover:text-orange-500 transition-colors"
+          >
             <SkipForward size={22} fill="currentColor" />
           </button>
-          <button className="text-gray-400 hover:text-white transition-colors">
+          <button 
+            onClick={onRepeatToggle}
+            className={`transition-colors ${isRepeat ? 'text-orange-500' : 'text-gray-400 hover:text-white'}`}
+          >
             <Repeat size={18} />
           </button>
         </div>
@@ -112,6 +139,13 @@ const MusicPlayer = ({
       </div>
 
       <div className="flex items-center justify-end gap-4 w-1/3">
+        <button
+          onClick={onQueueClick}
+          className="text-gray-400 hover:text-white transition-colors"
+        >
+          <ListMusic size={18} />
+        </button>
+        
         <div className="flex items-center gap-2 w-32 group">
           <button onClick={() => onVolumeChange(volume === 0 ? 0.7 : 0)}>
             {volume === 0 ? (
@@ -134,7 +168,10 @@ const MusicPlayer = ({
             ></div>
           </div>
         </div>
-        <button className="text-gray-400 hover:text-white transition-colors">
+        <button 
+          onClick={() => alert('Fullscreen coming soon!')}
+          className="text-gray-400 hover:text-white transition-colors"
+        >
           <Maximize2 size={18} />
         </button>
       </div>
@@ -143,3 +180,4 @@ const MusicPlayer = ({
 };
 
 export default MusicPlayer;
+    
