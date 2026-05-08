@@ -1,16 +1,32 @@
-import { Home, Compass, Library, Music2, Clock, ThumbsUp, PlusSquare } from 'lucide-react';
 
-const Sidebar = () => {
+  import { Home, Compass, Library, Music2, Clock, ThumbsUp, PlusSquare, Heart } from 'lucide-react';
+
+interface SidebarProps {
+  currentView?: string;
+  setCurrentView?: (view: 'home' | 'browse' | 'library') => void;
+  likedCount?: number;
+  playlistCount?: number;
+}
+
+const Sidebar = ({ currentView = 'home', setCurrentView, likedCount = 0, playlistCount = 0 }: SidebarProps) => {
+  const handleClick = (label: string, isActive: boolean, view?: 'home' | 'browse' | 'library') => {
+    if (view) {
+      setCurrentView?.(view);
+    } else if (!isActive) {
+      alert(`${label} page coming soon!`);
+    }
+  };
+
   const menuItems = [
-    { icon: Home, label: 'Feed', active: true },
-    { icon: Compass, label: 'Discover' },
-    { icon: Library, label: 'Library' },
+    { icon: Home, label: 'Feed', active: currentView === 'home', view: 'home' as const },
+    { icon: Compass, label: 'Discover', active: currentView === 'browse', view: 'browse' as const },
+    { icon: Library, label: 'Library', active: currentView === 'library', view: 'library' as const },
   ];
 
   const secondaryItems = [
-    { icon: Music2, label: 'Playlists' },
+    { icon: Music2, label: 'Playlists', count: playlistCount },
     { icon: Clock, label: 'Recently Played' },
-    { icon: ThumbsUp, label: 'Favorites' },
+    { icon: ThumbsUp, label: 'Favorites', count: likedCount },
   ];
 
   return (
@@ -29,6 +45,10 @@ const Sidebar = () => {
               <li key={item.label}>
                 <a
                   href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(item.label, item.active, item.view);
+                  }}
                   className={`flex items-center gap-4 transition-colors ${
                     item.active ? 'text-orange-500' : 'text-gray-400 hover:text-white'
                   }`}
@@ -50,17 +70,33 @@ const Sidebar = () => {
               <li key={item.label}>
                 <a
                   href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (item.label === 'Favorites') {
+                      setCurrentView?.('library');
+                    } else {
+                      alert(`${item.label} page coming soon!`);
+                    }
+                  }}
                   className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors"
                 >
                   <item.icon size={22} />
                   <span className="font-medium">{item.label}</span>
+                  {item.count ? (
+                    <span className="ml-auto text-xs bg-dark-700 px-2 py-0.5 rounded-full text-gray-300">
+                      {item.count}
+                    </span>
+                  ) : null}
                 </a>
               </li>
             ))}
           </ul>
         </div>
 
-        <button className="flex items-center gap-4 text-orange-500 font-semibold hover:text-orange-400 transition-colors mt-auto">
+        <button 
+          onClick={() => alert('Create playlist coming soon!')}
+          className="flex items-center gap-4 text-orange-500 font-semibold hover:text-orange-400 transition-colors mt-auto"
+        >
           <PlusSquare size={22} />
           <span>Create Playlist</span>
         </button>
@@ -69,4 +105,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar; 
