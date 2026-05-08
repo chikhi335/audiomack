@@ -5,6 +5,9 @@ export interface Song {
   cover: string;
   duration: string;
   url: string;
+  genre?: string;
+  plays?: number;
+  likes?: number;
 }
 
 export const trendingSongs: Song[] = [
@@ -15,6 +18,9 @@ export const trendingSongs: Song[] = [
     cover: 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    genre: 'Hip Hop',
+    plays: 2400000,
+    likes: 89000,
   },
   {
     id: '2',
@@ -23,6 +29,9 @@ export const trendingSongs: Song[] = [
     cover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    genre: 'Hip Hop',
+    plays: 1800000,
+    likes: 67000,
   },
   {
     id: '3',
@@ -31,6 +40,9 @@ export const trendingSongs: Song[] = [
     cover: 'https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    genre: 'Pop',
+    plays: 3200000,
+    likes: 120000,
   },
   {
     id: '4',
@@ -39,6 +51,9 @@ export const trendingSongs: Song[] = [
     cover: 'https://images.unsplash.com/photo-1459749411177-042180ce673c?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    genre: 'Pop',
+    plays: 1500000,
+    likes: 54000,
   },
   {
     id: '5',
@@ -47,14 +62,64 @@ export const trendingSongs: Song[] = [
     cover: 'https://images.unsplash.com/photo-1514525253361-bee8a487409e?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+    genre: 'R&B',
+    plays: 2100000,
+    likes: 78000,
   },
   {
     id: '6',
     title: 'Water',
     artist: 'Tyla',
-    cover: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=300&h=300&fit=crop',
+    cover: 'https://images.unsplash.com/photo-1498038432885-e6f3f1b912ee?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    genre: 'Afrobeats',
+    plays: 1900000,
+    likes: 71000,
+  },
+  {
+    id: '10',
+    title: 'Last Night',
+    artist: 'Morgan Wallen',
+    cover: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+    genre: 'Country',
+    plays: 2800000,
+    likes: 95000,
+  },
+  {
+    id: '11',
+    title: 'Kill Bill',
+    artist: 'SZA',
+    cover: 'https://images.unsplash.com/photo-1485579149621-3123dd979885?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+    genre: 'R&B',
+    plays: 1700000,
+    likes: 62000,
+  },
+  {
+    id: '12',
+    title: 'Flowers',
+    artist: 'Miley Cyrus',
+    cover: 'https://images.unsplash.com/photo-1514525253361-bee8a487409e?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3',
+    genre: 'Pop',
+    plays: 3500000,
+    likes: 140000,
+  },
+  {
+    id: '13',
+    title: 'Anti-Hero',
+    artist: 'Taylor Swift',
+    cover: 'https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3',
+    genre: 'Pop',
+    plays: 2900000,
+    likes: 110000,
   },
 ];
 
@@ -66,6 +131,9 @@ export const recentlyPlayed: Song[] = [
     cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    genre: 'Hip Hop',
+    plays: 1200000,
+    likes: 43000,
   },
   {
     id: '8',
@@ -74,6 +142,9 @@ export const recentlyPlayed: Song[] = [
     cover: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+    genre: 'Pop',
+    plays: 900000,
+    likes: 32000,
   },
   {
     id: '9',
@@ -82,5 +153,96 @@ export const recentlyPlayed: Song[] = [
     cover: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=300&h=300&fit=crop',
     duration: '0:30',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    genre: 'Latin',
+    plays: 2000000,
+    likes: 75000,
+  },
+  {
+    id: '14',
+    title: 'Creepin',
+    artist: 'Metro Boomin ft. Weeknd',
+    cover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3',
+    genre: 'Hip Hop',
+    plays: 1600000,
+    likes: 58000,
+  },
+  {
+    id: '15',
+    title: 'Sure Thing',
+    artist: 'Miguel',
+    cover: 'https://images.unsplash.com/photo-1498038432885-e6f3f1b912ee?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3',
+    genre: 'R&B',
+    plays: 1300000,
+    likes: 48000,
+  },
+  {
+    id: '16',
+    title: 'As It Was',
+    artist: 'Harry Styles',
+    cover: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3',
+    genre: 'Pop',
+    plays: 2200000,
+    likes: 82000,
   },
 ];
+
+export const newReleases: Song[] = [
+  {
+    id: '17',
+    title: 'Vampire',
+    artist: 'Olivia Rodrigo',
+    cover: 'https://images.unsplash.com/photo-1485579149621-3123dd979885?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    genre: 'Pop',
+    plays: 800000,
+    likes: 35000,
+  },
+  {
+    id: '18',
+    title: 'Seven',
+    artist: 'Jung Kook ft. Latto',
+    cover: 'https://images.unsplash.com/photo-1514525253361-bee8a487409e?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    genre: 'Pop',
+    plays: 1100000,
+    likes: 52000,
+  },
+  {
+    id: '19',
+    title: 'Dance The Night',
+    artist: 'Dua Lipa',
+    cover: 'https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    genre: 'Pop',
+    plays: 950000,
+    likes: 41000,
+  },
+  {
+    id: '20',
+    title: 'Barbie World',
+    artist: 'Nicki Minaj & Ice Spice',
+    cover: 'https://images.unsplash.com/photo-1459749411177-042180ce673c?w=300&h=300&fit=crop',
+    duration: '0:30',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    genre: 'Hip Hop',
+    plays: 750000,
+    likes: 28000,
+  },
+];
+
+export const genres = ['All', 'Hip Hop', 'Pop', 'R&B', 'Country', 'Latin', 'Afrobeats'];
+
+export const formatNumber = (num: number): string => {
+  if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+  if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+  return num.toString();
+};
