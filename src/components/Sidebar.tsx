@@ -1,6 +1,5 @@
 
-  import { Home, Compass, Library, Music2, Clock, ThumbsUp, PlusSquare, Heart } from 'lucide-react';
-
+ import { Home, Compass, Library, Music2, Clock, ThumbsUp, PlusSquare } from 'lucide-react';
 interface SidebarProps {
   currentView?: string;
   setCurrentView?: (view: 'home' | 'browse' | 'library') => void;
