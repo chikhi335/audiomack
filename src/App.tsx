@@ -6,7 +6,7 @@ import SongCard from './components/SongCard'
 import MusicPlayer from './components/MusicPlayer'
 import AuthModal from './components/AuthModal'
 import QueuePanel from './components/QueuePanel'
-import { trendingSongs, recentlyPlayed, newReleases, allSongsList, type Song } from './mockData'
+import { trendingSongs, recentlyPlayed, newReleases, type Song } from './mockData'
 import { ChevronRight, Heart } from 'lucide-react'
 
 function App() {
